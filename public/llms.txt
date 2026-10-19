@@ -1,0 +1,14 @@
+# Arcway (design concept)
+
+> Arcway is a fictional stablecoin payments company, created as a portfolio design concept by Nova Digital Studio. It is not a real product and holds no licences; all fees, timings and volumes on the site are concept figures.
+
+The concept: businesses send money across borders in seconds. Arcway converts local currency to a dollar stablecoin (USDC), settles it on-chain and pays out in the recipient's local currency, so the sender never touches crypto. Buyers are finance leads and founders at importers, exporters, marketplaces and payroll platforms.
+
+## Pages
+
+- [Home](https://arcway.vercel.app/): a send calculator, one payment followed from Lagos (₦15,750,000) to Berlin (€9,214.50) in about 4 seconds through three steps (convert, settle, pay out), the network, a dashboard, trust and compliance (concept), and developers.
+- [Developers](https://arcway.vercel.app/developers): API overview, payment states (created, converting, settling, paying_out, arrived), code samples and sandbox keys (concept).
+
+## About the build
+
+React 19, TypeScript, Vite, React Router v7 (pre-rendered), Tailwind CSS v4, React Three Fiber, GSAP ScrollTrigger and Lenis on one shared clock. The globe's land dots are baked at build time from Natural Earth (public domain). By Nova Digital Studio.

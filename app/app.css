@@ -1,0 +1,210 @@
+@import "tailwindcss";
+
+:root {
+  --abyss: #0a0f1e;
+  --paper: #f6f7f9;
+  --ink: #0e1424;
+  --ink-muted: #5a6275;
+  --mist: #a9b3c7;
+  --line: #dde1e8;
+  --signal: #2f4bff;
+  --arrived: #3fe0b0;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@theme inline {
+  --color-abyss: var(--abyss);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--ink-muted);
+  --color-mist: var(--mist);
+  --color-line: var(--line);
+  --color-signal: var(--signal);
+  --color-arrived: var(--arrived);
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+  --radius-btn: 10px;
+  --radius-card: 18px;
+}
+
+@utility text-display {
+  font-size: clamp(44px, 2.6rem + 5vw, 88px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-weight: 560;
+}
+@utility text-h2 {
+  font-size: clamp(32px, 1.45rem + 2.4vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 560;
+}
+@utility text-h3 {
+  font-size: clamp(21px, 1.15rem + 0.55vw, 26px);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  font-weight: 560;
+}
+@utility text-body {
+  font-size: clamp(16px, 0.95rem + 0.22vw, 18px);
+  line-height: 1.55;
+}
+@utility text-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+@utility tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+@utility measure {
+  max-width: 46ch;
+}
+@utility section-pad {
+  padding-block: 96px;
+  @media (min-width: 768px) {
+    padding-block: 144px;
+  }
+}
+@utility site {
+  width: 100%;
+  max-width: calc(1280px + 48px);
+  margin-inline: auto;
+  padding-inline: 16px;
+  @media (min-width: 768px) {
+    padding-inline: 24px;
+  }
+}
+
+html {
+  background: var(--abyss);
+  color: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.55;
+  overflow-x: clip;
+}
+::selection {
+  background: var(--signal);
+  color: var(--paper);
+}
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+.on-dark :focus-visible {
+  outline-color: var(--arrived);
+}
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: -60px;
+  z-index: 100;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--signal);
+  color: var(--paper);
+  transition: top 0.3s var(--ease);
+}
+.skip-link:focus {
+  top: 12px;
+}
+
+/* Phones: the globe owns the top 40svh; text scrolls in the space below. */
+.phone-gap {
+  @media (max-width: 1023px) {
+    padding-top: 42svh;
+  }
+}
+
+/* The payment chip and layer labels, placed over the 3D every frame */
+.chip {
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.chip.is-arrived {
+  border-color: var(--arrived);
+}
+.chip.is-arrived .chip-amount {
+  color: var(--arrived);
+}
+.chip.is-arrived .chip-dot {
+  background: var(--arrived);
+}
+.layer-label.is-lit {
+  color: var(--arrived);
+  border-color: color-mix(in oklab, var(--arrived) 60%, transparent);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.8s var(--ease),
+    transform 0.8s var(--ease);
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+html:not(.js) .reveal {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+.live-dot {
+  animation: pulse-dot 1.6s ease-in-out infinite;
+}
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+.no-bar {
+  scrollbar-width: none;
+}
+.no-bar::-webkit-scrollbar {
+  display: none;
+}
+html.capture body > *:not(#stage):not(script),
+html.capture header {
+  visibility: hidden !important;
+}
+html.capture #stage .overlay {
+  display: none;
+}
+html.capture-chip .chip-layer {
+  visibility: visible !important;
+}
