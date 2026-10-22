@@ -45,7 +45,7 @@ export function Footer() {
           <div className="lg:col-span-4">
             <Logo />
             <p className="mt-5 max-w-[30ch] text-[17px] text-mist">If we can make money crossing the world feel this calm, imagine what we can build for your product.</p>
-            <a href="https://contra.com" className="mt-4 inline-block text-[15px] text-paper underline underline-offset-4">Work with Nova Digital Studio</a>
+            <a href="https://novadigital.studio" className="mt-4 inline-block text-[15px] text-paper underline underline-offset-4">Work with Nova Digital Studio</a>
           </div>
           <nav aria-label="Footer" className="lg:col-span-5">
             <div className="hidden grid-cols-3 gap-6 md:grid">
