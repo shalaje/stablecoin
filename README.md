@@ -23,5 +23,5 @@ npm run bake     # re-bake the globe's land dots (only if you change the density
 - **Concept money**: rates in `app/lib/money.ts` are tuned so ₦15,750,000 lands as exactly €9,214.50.
 
 ## Replace before publishing
-- Footer link "Work with Nova Digital Studio" → your Contra profile.
+- Footer link "Work with Nova Digital Studio" points to https://novadigital.studio.
 - `SITE.url` in `app/lib/site.ts` once deployed (OG image links use it).
